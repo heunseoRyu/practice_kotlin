@@ -1,8 +1,9 @@
-package org.example.practicekotlin.controller
+package org.example.practicekotlin.domain.todo.controller
 
-import org.example.practicekotlin.dto.TodoRequest
-import org.example.practicekotlin.dto.TodoResponse
-import org.example.practicekotlin.service.TodoService
+import org.example.practicekotlin.domain.todo.dto.TodoRequest
+import org.example.practicekotlin.domain.todo.dto.TodoResponse
+import org.example.practicekotlin.domain.todo.service.TodoService
+import org.example.practicekotlin.global.common.BaseResponse
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping
@@ -17,23 +18,23 @@ class TodoController(
 ) {
 
     @GetMapping("/todos")
-    suspend fun getList() =
+    fun getList() =
         todoService.todoList()
 
     @GetMapping("/todos/{id}")
-    suspend fun get(@PathVariable(name="id") id:Long) =
-        TodoResponse(todoService.todoInfo(id))
+    fun get(@PathVariable(name="id") id:Long) =
+        BaseResponse( message="할일 조회 성공",data = TodoResponse(todoService.todoInfo(id)))
 
     @PostMapping("/todos")
-    suspend fun create(@RequestBody todoRequest: TodoRequest) =
-        TodoResponse(todoService.create(todoRequest))
+    fun create(@RequestBody todoRequest: TodoRequest) =
+        todoService.create(todoRequest)
 
     @PatchMapping("/todos/{id}")
-    suspend fun modify(@PathVariable(name="id") id:Long,@RequestBody todoRequest: TodoRequest) =
+    fun modify(@PathVariable(name="id") id:Long,@RequestBody todoRequest: TodoRequest) =
         todoService.modify(id,todoRequest)
 
     @DeleteMapping("/todos/{id}")
-    suspend fun delete(@PathVariable(name="id") id:Long) =
+    fun delete(@PathVariable(name="id") id:Long) =
         todoService.delete(id)
 
 }
