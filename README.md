@@ -1,6 +1,6 @@
 main은 코드
 
-<a href="https://2024-applyforducami-8.notion.site/131689a94264805f8217da1568411886?pvs=4"></p>자세한 설명</a>
+[자세한 설명(노션)](https://2024-applyforducami-8.notion.site/131689a94264805f8217da1568411886?pvs=4)
 
 입문용 (post코드 + 기초문법)
 
