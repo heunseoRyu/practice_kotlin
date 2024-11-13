@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/temp
+    username: root
+    password: glass7710
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  # JPA Setting
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show_sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+jwt:
+  secret: f815a681473f0a3b85a3dbc1eaa578ecfd21f5387f97805c4c285ee22e6a30c5
+# Access token expiration time (in milliseconds)
+  expire:
+    access: 6000000
+# Refresh token expiration time (in milliseconds)
+    refresh: 864000000

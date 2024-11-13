@@ -1,10 +1,13 @@
-package org.example.practicekotlin.dto
+package org.example.practicekotlin.domain.todo.dto
 
-import org.example.practicekotlin.entity.Todo
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonProperty
+import org.example.practicekotlin.domain.todo.entity.Todo
 
-data class TodoRequest(
-    val title: String,
-    val content: String = ""
+
+data class TodoRequest @JsonCreator constructor(
+    @JsonProperty("title") val title: String,
+    @JsonProperty("content") val content: String
 ){
     fun toEntity(): Todo {
         return Todo(
@@ -20,7 +23,7 @@ data class TodoResponse(
     val content: String
 ){
     companion object {
-        operator fun invoke(todo: Todo): TodoResponse{
+        operator fun invoke(todo: Todo): TodoResponse {
             return TodoResponse(
                 id = todo.id!!,
                 /* nullable 변수를 강제로 null이 아니라고 선언 ->
