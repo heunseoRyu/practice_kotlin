@@ -1,6 +1,7 @@
 package org.example.practicekotlin.global.config
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import io.netty.handler.codec.http.HttpMethod.GET
 import org.example.practicekotlin.domain.user.domain.enums.UserRoles
 import org.example.practicekotlin.global.auth.jwt.JwtUtils
 import org.example.practicekotlin.global.auth.jwt.JwtAuthenticationFilter
